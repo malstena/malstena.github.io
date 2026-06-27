@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Målstena – Byn som inte är en by</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f4f1ea; /* Linnevit/Pergament */
+            --text-color: #2c2825; /* Mörk sten/Granit */
+            --primary-color: #3a4a3f; /* Mossgrön */
+            --accent-color: #8e5a28; /* Koppar/Järn */
+            --highlight-bg: #e8e2d4;
+            --border-color: #c5bda8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 40, 37, 0.7), rgba(44, 40, 37, 0.4)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1778&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 15px 25px;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 30px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        p:first-of-type::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 10px;
+            padding-top: 5px;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        /* Blockquote style */
+        blockquote {
+            background-color: var(--highlight-bg);
+            border-left: 5px solid var(--accent-color);
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #4a463d;
+        }
+
+        /* Callout box */
+        .callout {
+            background-color: rgba(58, 74, 63, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+
+        .callout h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: #bfb8a8;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero .subtitle {
+                font-size: 1.4rem;
+            }
+            nav ul li a {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+            .container {
+                padding: 30px 20px;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            p:first-of-type::first-letter {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Målstena</h1>
+        <p class="subtitle">Byn som inte är en by</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#intro">Idag</a></li>
+            <li><a href="#forntid">Forntid & Smedjan</a></li>
+            <li><a href="#medeltid">Medeltid</a></li>
+            <li><a href="#jordbruk">1700- & 1800-tal</a></li>
+            <li><a href="#industri">1900-tal</a></li>
+            <li><a href="#idag">Nutid</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        
+        <section id="intro">
+            <h2>En plats med många ansikten</h2>
+            <p>Målstena är idag inte en traditionell by, utan ett omrande bestående av 11 lite utspridda fastigheter. Men bakom dessa lugna skogar och ängar döljer sig en historia som sträcker sig ända tillbaka till järnåldern och vikingatiden. Platsen har varit hem för forntida smeder, offerplatser, medeltida adelsmän, hårt arbetande bönder och skogsarbetare.</p>
+        </section>
+
+        <section id="forntid">
+            <h2>Forntid och vikingatid</h2>
+            <p>Spåren efter de första människorna i Målstena lever kvar i landskapet. Det har bott folk i trakten sedan järnåldern, och det är inte omöjligt att gården fanns redan under vikingatiden, med omnämanden som sträcker sig tillbaka till 1100-talet.</p>
+            
+            <div class="callout">
+                <h3>Fornlämningen: Smedjan och kolmilorna</h3>
+                <p>På Målstena Gårds marker finns spåren av en uråldrig smedja, strax intill lämningarna av gamla kolmilor. Detta vittnar om en tidig industriell verksamhet i området, där man bröt och bearbetade järn ur myrmalmen i de omgivande skogarna.</p>
+            </div>
+
+            <h3>Offerlunden och Gastekarna</h3>
+            <p>I området finns en stor mängd fornfynd, bland annat en högliknande förhöjning och en offerplats vid Odensgöl. Vid sjön stod en nästan fyrkantig offersten, 2x1,5 meter stor med en flat ovansida. På äldre kartor kallades platsen för "Offerlunden".</p>
+            
+            <blockquote>
+                "När döda skulle köras till bårhuset måste skjutsen stanna och den döde bäras förbi ekarna."
+            </blockquote>
+            <p>En annan fascinerande detalj från äldre tider är berättelsen om de två "Gastekarna" vid vägen mot Byrum. Enligt gammal folktro var man tvungen att stanna skjutsen och bära den döde förbi ekarna när likvagnar åkte till bårhuset. Idag finns bara en av ekarna kvar.</p>
+        </section>
+
+        <section id="medeltid">
+            <h2>Medeltid och adelsfrälset</h2>
+            <p>Namnet Målstena (”màsténa”) kommer troligen från fornsvenskans ”mal”, som betyder ett med stenar utmätt jordstycke. Sjön Hövern intill betyder ’bergsjön’.</p>
+            <p>Målstena nämns i skrift första gången 1375 ("Lasse i Mastem"). Året därpå, den 15 augusti 1376, köpte häradshövdingen Peter Tomasson jord i Målstena för 30 mark penningar. Under lång tid därefter ägdes Målstena av den mäktiga sätesgården Björkvik, som bildades på 1300-talet. Gården gick i arv bland adliga släkter som Gera, Oxenstierna och Gyllenstierna innan den såldes till friherre Johan Gabriel Banér på 1780-talet. Målstena var länge ett så kallat "rå- och rörshemman" under detta frälse.</p>
+        </section>
+
+        <section id="jordbruk">
+            <h2>Livet på gården (1700- och 1800-talet)</h2>
+            <p>Målstena var ett aktivt jordbruk och ett hem för många människor genom århundradena. På 1500-talet beskattades bonden Niels i Måsten för Älvsborgs lösen. Han ägde bland annat 2 små oxar, 1 ko, 3 får och 1 häst.</p>
+            <p>Den nuvarande manbyggnaden på Målstena Gård uppfördes i början av 1800-talet, troligen byggd av timmer från äldre hus på platsen. Målstena Torpet, som idag är en separat fastighet, byggdes troligen strax före 1880.</p>
+            <p>År 1929 uppfördes Målstena skola på platsen. Den första – och sista – lärarinnan hette Alma Lindeskog. När hon avgick 1947 fick skolan stänga på grund av för få elever, ett tecken på att befolkningen i bygden började minska.</p>
+        </section>
+
+        <section id="industri">
+            <h2>Industrin tar över</h2>
+            <p>I början av 1900-talet skedde stora förändringar. Efter att ha bytt ägare några gånger köpte <strong>Holmens Bruks & Fabriks AB</strong> hela egendomen 1905. Under denna tid arrenderades gårdens 46 hektar (varav 42 åker) ut. Ladugården rymde 7 hästar och 37 nötkreatur, och man hade en reakt-fri besättning.</p>
+            <p>Järnvägen hade inletts redan 1880 och fraktade virke från sågverk i trakten, vilket förändrade bygdens ekonomi från renodlat jordbruk till industriellt skogsbruk.</p>
+        </section>
+
+        <section id="idag">
+            <h2>Målstena idag</h2>
+            <p>Idag är de stora jordbruken borta. Fram till 1989 var Målstena en sammanhållen gård, innan den började styckas av till de 11 fastigheter som finns idag. Målstena Gårds marker ägs fortfarande till stora delar av Holmen Skog, som arrenderar ut mark och hagar.</p>
+            <p>De gamla bostadshusen och torpen har renoverats till moderna bostäder och fritidshus. Området är idag en lugn och naturnära plats, med hela fyra naturreservat på promenadavstånd – en plats där forntida smedjor och offerstenar möter dagens stilla skogsvandringar.</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p><strong>Källor:</strong> Björsäters sockenböcker (1973, 1984), Riksarkivet, Lantmäteriets historiska kartor, Erik Nilsson "Det hände i en bygd" (1994), samt gårdens egna arkiv.</p>
+        <p style="margin-top: 10px; opacity: 0.7;">&copy; <span id="year"></span> Målstena – Byn som inte är en by</p>
+    </footer>
+
+    <script>
+        // Simple script to auto-update the year in the footer
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
